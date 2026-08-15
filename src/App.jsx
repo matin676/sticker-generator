@@ -80,23 +80,16 @@ export default function App() {
     ? alignMap[state.textAlign] || "center"
     : "center";
 
-  const gridStyle = hasCustomDims
-    ? {
-        display: "flex",
-        flexWrap: "wrap",
-        alignContent: "flex-start",
-        padding: `${state.margin}px`,
-        gap: `${state.gap}px`,
-        fontFamily: `'${state.fontFamily}', system-ui, sans-serif`,
-      }
-    : {
-        display: "grid",
-        gridTemplateRows: `repeat(${state.rows}, 1fr)`,
-        gridTemplateColumns: `repeat(${state.cols}, 1fr)`,
-        padding: `${state.margin}px`,
-        gap: `${state.gap}px`,
-        fontFamily: `'${state.fontFamily}', system-ui, sans-serif`,
-      };
+  const gridStyle = {
+    display: "grid",
+    gridTemplateRows: `repeat(${state.rows}, ${hasCustomDims ? "max-content" : "1fr"})`,
+    gridTemplateColumns: `repeat(${state.cols}, ${hasCustomDims ? "max-content" : "1fr"})`,
+    justifyContent: hasCustomDims ? "start" : "stretch",
+    alignContent: hasCustomDims ? "start" : "stretch",
+    padding: hasCustomDims ? undefined : `${state.margin}px`,
+    gap: hasCustomDims ? undefined : `${state.gap}px`,
+    fontFamily: `'${state.fontFamily}', system-ui, sans-serif`,
+  };
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-[#FDFBFF] font-sans selection:bg-[#EADDFF] selection:text-[#21005D] print:h-auto print:w-full print:overflow-visible print:block">

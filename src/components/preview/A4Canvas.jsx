@@ -23,9 +23,21 @@ export function A4Canvas({
         width: `${paperConfig.width}px`,
         height: `${paperConfig.height}px`,
         borderRadius: "16px",
+        "--sticker-width-mm": `${state.stickerWidthMm}mm`,
+        "--sticker-height-mm": `${state.stickerHeightMm}mm`,
+        "--sticker-width-px": `${state.stickerWidthMm * (paperConfig.width / paperConfig.mmWidth)}px`,
+        "--sticker-height-px": `${state.stickerHeightMm * (paperConfig.width / paperConfig.mmWidth)}px`,
+        "--margin-top-mm": `${state.marginTopMm}mm`,
+        "--margin-left-mm": `${state.marginLeftMm}mm`,
+        "--gap-x-mm": `${state.gapXMm}mm`,
+        "--gap-y-mm": `${state.gapYMm}mm`,
+        "--margin-top-px": `${state.marginTopMm * (paperConfig.width / paperConfig.mmWidth)}px`,
+        "--margin-left-px": `${state.marginLeftMm * (paperConfig.width / paperConfig.mmWidth)}px`,
+        "--gap-x-px": `${state.gapXMm * (paperConfig.width / paperConfig.mmWidth)}px`,
+        "--gap-y-px": `${state.gapYMm * (paperConfig.width / paperConfig.mmWidth)}px`,
       }}
     >
-      <div className="w-full h-full" style={gridStyle}>
+      <div className={`w-full h-full ${hasCustomDims ? "custom-layout-grid" : ""}`} style={gridStyle}>
         {cells.map((cell) => (
           <StickerCell
             key={`${cell.r}-${cell.c}`}

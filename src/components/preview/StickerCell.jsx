@@ -27,26 +27,20 @@ function StickerCellComponent({
   if (!selected) {
     return (
       <div 
-        className="sticker-cell excluded" 
-        style={{
-          width: hasCustomDims ? width : "auto",
-          height: hasCustomDims ? height : "auto",
-        }}
+        className={cn("sticker-cell excluded", hasCustomDims && "custom-dim-cell")}
       />
     );
   }
 
   return (
     <div
-      className={cn("sticker-cell relative", showPerf && "perf")}
+      className={cn("sticker-cell relative", showPerf && "perf", hasCustomDims && "custom-dim-cell")}
       style={{
         flexDirection: cellFlexDirection,
         alignItems: cellAlignItems,
         justifyContent: cellJustifyContent,
         backgroundColor: bgColor,
         gap,
-        width: hasCustomDims ? width : "auto",
-        height: hasCustomDims ? height : "auto",
         padding,
       }}
     >

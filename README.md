@@ -7,7 +7,7 @@ A premium, interactive web application for generating perfectly formatted, print
 - **Perfect A4 Print Layout:** The print view strips away all UI elements and perfectly scales your sticker sheet for A4 paper. No cropping, no bleeding.
 - **Dynamic Live Preview:** Real-time preview of the sticker sheet with expressive animations and tactile controls.
 - **Bulk Multi-Page Printing:** Easily add, manage, and delete multiple pages of sticker data. The print layout will perfectly paginate the exact physical space across multiple sheets.
-- **Custom Sticker Dimensions:** Choose between standard sizes or set custom Width (mm) and Height (mm) for your stickers.
+- **Physical Alignment Engine (Dual-Resolution):** When using custom dimensions, standard generic sliders are replaced with exact millimeter inputs for Width, Height, Top Margin, Left Margin, and Gaps. A custom CSS grid mathematically scales the millimeter values to fit your screen, but injects absolute millimeter values during printing to guarantee pinpoint alignment with physical pre-cut sticker paper (e.g., Avery sheets).
 - **Visual Grid Selection:** Interactive grid to map exactly which sticker cells should be printed on the sheet. Unselected cells perfectly preserve their physical dimensions, allowing you to re-use partially printed sticker paper with millimeter accuracy.
 - **Rich Typography & Styling:**
   - Font families (Inter, Roboto, Outfit, Montserrat, etc.)

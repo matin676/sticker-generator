@@ -143,28 +143,74 @@ export function Sidebar({
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="flex gap-4 overflow-hidden"
+                  className="space-y-4 overflow-hidden"
                 >
-                  <FloatingInput
-                    label="Width (mm)"
-                    id="stickerWidthMm"
-                    type="number"
-                    value={state.stickerWidthMm || ""}
-                    onChange={(val) =>
-                      update({ stickerWidthMm: parseFloat(val) || "" })
-                    }
-                    placeholder="e.g. 38.1"
-                  />
-                  <FloatingInput
-                    label="Height (mm)"
-                    id="stickerHeightMm"
-                    type="number"
-                    value={state.stickerHeightMm || ""}
-                    onChange={(val) =>
-                      update({ stickerHeightMm: parseFloat(val) || "" })
-                    }
-                    placeholder="e.g. 21.2"
-                  />
+                  <div className="flex gap-4">
+                    <FloatingInput
+                      label="Width (mm)"
+                      id="stickerWidthMm"
+                      type="number"
+                      value={state.stickerWidthMm || ""}
+                      onChange={(val) =>
+                        update({ stickerWidthMm: parseFloat(val) || "" })
+                      }
+                      placeholder="e.g. 38.1"
+                    />
+                    <FloatingInput
+                      label="Height (mm)"
+                      id="stickerHeightMm"
+                      type="number"
+                      value={state.stickerHeightMm || ""}
+                      onChange={(val) =>
+                        update({ stickerHeightMm: parseFloat(val) || "" })
+                      }
+                      placeholder="e.g. 21.2"
+                    />
+                  </div>
+                  <div className="flex gap-4">
+                    <FloatingInput
+                      label="Top Margin (mm)"
+                      id="marginTopMm"
+                      type="number"
+                      value={state.marginTopMm || ""}
+                      onChange={(val) =>
+                        update({ marginTopMm: parseFloat(val) || 0 })
+                      }
+                      placeholder="e.g. 15.2"
+                    />
+                    <FloatingInput
+                      label="Left Margin (mm)"
+                      id="marginLeftMm"
+                      type="number"
+                      value={state.marginLeftMm || ""}
+                      onChange={(val) =>
+                        update({ marginLeftMm: parseFloat(val) || 0 })
+                      }
+                      placeholder="e.g. 7.2"
+                    />
+                  </div>
+                  <div className="flex gap-4">
+                    <FloatingInput
+                      label="Horiz. Gap (mm)"
+                      id="gapXMm"
+                      type="number"
+                      value={state.gapXMm || ""}
+                      onChange={(val) =>
+                        update({ gapXMm: parseFloat(val) || 0 })
+                      }
+                      placeholder="e.g. 2.5"
+                    />
+                    <FloatingInput
+                      label="Vert. Gap (mm)"
+                      id="gapYMm"
+                      type="number"
+                      value={state.gapYMm || ""}
+                      onChange={(val) =>
+                        update({ gapYMm: parseFloat(val) || 0 })
+                      }
+                      placeholder="e.g. 2.5"
+                    />
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -187,24 +233,26 @@ export function Sidebar({
                 onChange={(val) => update({ cols: val })}
               />
             </div>
-            <div className="flex gap-4">
-              <ExpressiveStepper
-                label="Margin"
-                id="margin"
-                value={state.margin}
-                min={0}
-                max={100}
-                onChange={(val) => update({ margin: val })}
-              />
-              <ExpressiveStepper
-                label="Gap"
-                id="gap"
-                value={state.gap}
-                min={0}
-                max={50}
-                onChange={(val) => update({ gap: val })}
-              />
-            </div>
+            {!state.useCustomDimensions && (
+              <div className="flex gap-4">
+                <ExpressiveStepper
+                  label="Margin"
+                  id="margin"
+                  value={state.margin}
+                  min={0}
+                  max={100}
+                  onChange={(val) => update({ margin: val })}
+                />
+                <ExpressiveStepper
+                  label="Gap"
+                  id="gap"
+                  value={state.gap}
+                  min={0}
+                  max={50}
+                  onChange={(val) => update({ gap: val })}
+                />
+              </div>
+            )}
             <div className="pt-2">
               <ExpressiveToggle
                 label="Show Die-cut Borders"
