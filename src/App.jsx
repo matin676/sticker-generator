@@ -1159,7 +1159,7 @@ export default function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-6 right-8 z-50 print:hidden"
+              className="absolute top-6 right-8 z-50 no-print"
             >
               <button
                 onClick={handleInstallClick}
