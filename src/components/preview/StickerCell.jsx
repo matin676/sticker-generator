@@ -57,20 +57,20 @@ function StickerCellComponent({
         style={{ alignItems: textAlign }}
       >
         <span
-          className="leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
+          className="print-line1 leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
           style={{ fontSize: `${basePx}px`, fontWeight, color: textColor }}
         >
           {line1}
         </span>
         <span
-          className="leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
+          className="print-line2 leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
           style={{ fontSize: `${basePx * 0.8}px`, fontWeight, color: textColor }}
         >
           {line2}
         </span>
         {displayPrice && (
           <span
-            className="leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-full mt-1"
+            className="print-price leading-tight whitespace-nowrap overflow-hidden text-ellipsis max-w-full mt-1"
             style={{ fontSize: `${pricePx}px`, fontWeight: 800, color: textColor }}
           >
             {displayPrice}

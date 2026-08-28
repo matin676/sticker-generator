@@ -35,6 +35,9 @@ export function A4Canvas({
         "--margin-left-px": `${state.marginLeftMm * (paperConfig.width / paperConfig.mmWidth)}px`,
         "--gap-x-px": `${state.gapXMm * (paperConfig.width / paperConfig.mmWidth)}px`,
         "--gap-y-px": `${state.gapYMm * (paperConfig.width / paperConfig.mmWidth)}px`,
+        "--print-base-size": `${state.fontSize * 0.42 * (paperConfig.mmWidth / 595)}mm`,
+        "--print-line2-size": `${state.fontSize * 0.42 * 0.8 * (paperConfig.mmWidth / 595)}mm`,
+        "--print-price-size": `${state.fontSize * 0.42 * 1.05 * (paperConfig.mmWidth / 595)}mm`,
       }}
     >
       <div className={`w-full h-full ${hasCustomDims ? "custom-layout-grid" : ""}`} style={gridStyle}>
